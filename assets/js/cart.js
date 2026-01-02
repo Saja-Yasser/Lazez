@@ -1,5 +1,5 @@
 const CART_STORAGE_KEY = 'lazez_cart';
-const WHATSAPP_NUMBER = '+201020614188';
+const WHATSAPP_NUMBER = '00201020614188';
 
 let cart = [];
 
@@ -192,4 +192,5 @@ function showToast(message) {
         setTimeout(() => toast.remove(), 300);
     }, 2000);
 }
+
 
