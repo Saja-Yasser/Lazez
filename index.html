@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lazez - Modern Restaurant</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">LAZEZ</a>
+
+            <!-- Mobile Controls -->
+            <div style="display: flex; align-items: center; gap: 15px; margin-left: auto;">
+                <div class="cart-icon-wrapper" onclick="toggleCart()">
+                    <span>🛒</span>
+                    <div id="cart-count" class="cart-count" style="display: none;">0</div>
+                </div>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            </div>
+
+            <nav class="nav-links" id="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="index.html#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Delicious Food, <br>Delivered To You</h1>
+            <p>Experience the best taste in town with our premium burgers and meals.</p>
+            <div class="hero-buttons">
+                <a href="menu.html" class="btn btn-primary">View Menu</a>
+                <button class="btn btn-outline" style="color: white; border-color: white;" onclick="checkout()">Order
+                    via WhatsApp</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container" style="margin-bottom: 60px; scroll-margin-top: 100px;">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-grid">
+            <div class="contact-info-card">
+                <h2 style="margin-bottom: 20px;">Get in Touch</h2>
+                <p style="margin-bottom: 15px;"><strong>Hotline:</strong> <a href="tel:17313">17313</a></p>
+                <p style="margin-bottom: 15px;"><strong>Phone:</strong> <a href="tel:+201020614188">01020614188</a></p>
+                <p style="margin-bottom: 30px;">We are available for orders and inquiries.</p>
+
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <button class="btn btn-primary" onclick="window.open('https://wa.me/01020614188', '_blank')">Message
+                        on WhatsApp</button>
+                    <button class="btn btn-outline"
+                        onclick="window.open('https://www.google.com/maps/search/?api=1&query=Lazez+Restaurant', '_blank')">Open
+                        in Google Maps</button>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110502.60379284205!2d31.18842358899889!3d30.0596184702878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583fa60b21beeb%3A0x79df8294e80231!2sCairo%2C%20Cairo%20Governorate!5e0!3m2!1sen!2seg!4v1625686000000!5m2!1sen!2seg"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: #2d2d2d; color: white; padding: 40px 0; text-align: center;">
+        <p>&copy; 2026 Lazez Restaurant. All rights reserved.</p>
+    </footer>
+
+    <!-- Cart Modal (Hidden) -->
+    <div class="cart-modal-overlay" id="cart-modal-overlay" onclick="closeCart(event)">
+        <div class="cart-modal" onclick="event.stopPropagation()">
+            <div class="cart-header">
+                <h3>Your Cart</h3>
+                <button onclick="toggleCart()" style="background:none; font-size: 1.5rem;">&times;</button>
+            </div>
+            <div class="cart-items" id="cart-items-container">
+                <!-- Cart Items Injected Here -->
+            </div>
+            <div class="cart-footer">
+                <div class="total-row">
+                    <span>Total</span>
+                    <span id="cart-total">0 EGP</span>
+                </div>
+                <button class="btn btn-primary" style="width: 100%;" onclick="checkout()">Order via WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script>
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            initCart();
+            renderBestSellers('best-sellers-container');
+        });
+    </script>
+</body>
+
+</html>

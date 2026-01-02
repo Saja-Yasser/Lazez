@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Lazez</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">LAZEZ</a>
+
+            <!-- Mobile Controls -->
+            <div style="display: flex; align-items: center; gap: 15px; margin-left: auto;">
+                <div class="cart-icon-wrapper" onclick="toggleCart()">
+                    <span>🛒</span>
+                    <div id="cart-count" class="cart-count" style="display: none;">0</div>
+                </div>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            </div>
+
+            <nav class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="menu.html" class="active">Menu</a>
+                <a href="index.html#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 class="section-title" style="margin-top: 40px;">Our Menu</h1>
+        <div id="menu-container">
+            <!-- Menu Rendered Here -->
+        </div>
+    </div>
+
+    <!-- Cart Modal (Copied Structure) -->
+    <div class="cart-modal-overlay" id="cart-modal-overlay" onclick="closeCart(event)">
+        <div class="cart-modal" onclick="event.stopPropagation()">
+            <div class="cart-header">
+                <h3>Your Cart</h3>
+                <button onclick="toggleCart()" style="background:none; font-size: 1.5rem;">&times;</button>
+            </div>
+            <div class="cart-items" id="cart-items-container"></div>
+            <div class="cart-footer">
+                <div class="total-row">
+                    <span>Total</span>
+                    <span id="cart-total">0 EGP</span>
+                </div>
+                <button class="btn btn-primary" style="width: 100%;" onclick="checkout()">Order via WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initCart();
+            renderMenu('menu-container');
+        });
+    </script>
+</body>
+
+</html>
